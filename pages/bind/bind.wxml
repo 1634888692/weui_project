@@ -1,0 +1,22 @@
+<view class="page__bd">
+
+        <view class="weui-btn-area">
+            <picker bindchange="bindPickerChange" value='{{index}}'  range='{{xiaoqu}}' range-key="{{'name'}}" >
+                <button type="default">{{xiaoqu[index].name}}</button>
+            </picker>
+            
+        </view>
+          <view class="weui-btn-area">
+            <picker bindchange="bindPickerQishuChange" value='{{index_qishu}}'  range='{{qishu}}' range-key="{{'name'}}" >
+                <button type="default">{{qishu[index_qishu].name}}</button>
+            </picker>
+            
+        </view>
+         <view class="weui-btn-area">
+            <picker bindchange="bindPickerDongshuChange" value='{{index_dongshu}}'  range='{{dongshu}}' range-key="{{'name'}}" >
+                <button type="default">{{dongshu[index_dongshu].name}}</button>
+            </picker>
+            
+        </view>
+         <view class="weui-btn-area" bindtap='saoma'>   <button type="default">扫二维码</button> </view>
+    </view>

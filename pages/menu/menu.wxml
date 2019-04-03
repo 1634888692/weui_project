@@ -1,0 +1,11 @@
+<view class="page">
+<view class="weui-btn-area">
+<button class="weui-btn" type="primary" bindtap="check">审核</button> 
+</view>
+<view class="weui-btn-area">
+<button class="weui-btn" type="primary" bindtap="bindequipment">设备绑定</button> 
+</view>
+<view class="weui-btn-area">
+<button class="weui-btn" type="primary">审核</button> 
+</view>
+</view>
