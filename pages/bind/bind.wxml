@@ -1,22 +1,65 @@
 <view class="page__bd">
 
-        <view class="weui-btn-area">
-            <picker bindchange="bindPickerChange" value='{{index}}'  range='{{xiaoqu}}' range-key="{{'name'}}" >
-                <button type="default">{{xiaoqu[index].name}}</button>
-            </picker>
-            
-        </view>
-          <view class="weui-btn-area">
-            <picker bindchange="bindPickerQishuChange" value='{{index_qishu}}'  range='{{qishu}}' range-key="{{'name'}}" >
-                <button type="default">{{qishu[index_qishu].name}}</button>
-            </picker>
-            
-        </view>
-         <view class="weui-btn-area">
-            <picker bindchange="bindPickerDongshuChange" value='{{index_dongshu}}'  range='{{dongshu}}' range-key="{{'name'}}" >
-                <button type="default">{{dongshu[index_dongshu].name}}</button>
-            </picker>
-            
-        </view>
-         <view class="weui-btn-area" bindtap='saoma'>   <button type="default">扫二维码</button> </view>
+  <view class="weui-btn-area">
+    <picker bindchange="bindPickerChange" value='{{index}}' range='{{xiaoqu}}' range-key="{{'name'}}">
+      <button type="default">{{xiaoqu[index].name}}</button>
+    </picker>
+
+  </view>
+  <view class="weui-btn-area">
+    <picker bindchange="bindPickerQishuChange" value='{{index_qishu}}' range='{{qishu}}' range-key="{{'name'}}">
+      <button type="default">{{qishu[index_qishu].name}}</button>
+    </picker>
+
+  </view>
+  <view class="weui-btn-area">
+    <picker bindchange="bindPickerDongshuChange" value='{{index_dongshu}}' range='{{dongshu}}' range-key="{{'name'}}">
+      <button type="default">{{dongshu[index_dongshu].name}}</button>
+    </picker>
+
+  </view>
+
+  <view class="weui-btn-area" bindtap='saoma' hidden='{{hidden_sao}}'>
+    <button type="default">扫二维码</button>
+  </view>
+  <view class="weui-cells weui-cells_after-title input" hidden='{{hidden_input}}'>
+
+    <view class="weui-cell weui-cell_input">
+
+      <view class="weui-cell__hd">
+
+        <view class="weui-label">输入设备名称</view>
+
+      </view>
+
+      <view class="weui-cell__bd">
+
+        <input class="weui-input" placeholder="请输入设备名称" bindinput="eqName" />
+
+      </view>
+
     </view>
+
+  </view>
+  <view class="weui-cells weui-cells_after-title input1" hidden='{{hidden_switch}}'>
+
+    <view class="weui-cell weui-cell_switch">
+
+      <view class="weui-cell__bd">是否为小区门禁</view>
+
+      <view class="weui-cell__ft">
+
+        <switch checked="{{isChecked}}" bindchange="changeSwitch" />
+
+      </view>
+
+    </view>
+
+  </view>
+
+
+  <view class="weui-btn-area" bindtap='sub' hidden='{{hidden_sub}}'>
+
+    <button type="default"> 提交</button>
+  </view>
+</view>

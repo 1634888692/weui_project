@@ -6,6 +6,6 @@
 <button class="weui-btn" type="primary" bindtap="bindequipment">设备绑定</button> 
 </view>
 <view class="weui-btn-area">
-<button class="weui-btn" type="primary">审核</button> 
+<button class="weui-btn" type="primary" bindtap='toImage'>上传图片</button> 
 </view>
 </view>

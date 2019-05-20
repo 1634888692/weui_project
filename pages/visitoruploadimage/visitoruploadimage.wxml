@@ -1,0 +1,80 @@
+<view class="page__bd">
+
+  
+ 
+<view class="weui-btn-area" >
+    <picker bindchange="bindPickerChange" value='{{index}}' range='{{residential}}' range-key="{{'name'}}">
+      <button type="default">{{residential[index].name}}</button>
+    </picker>
+
+  </view>
+  <view class="weui-btn-area" hidden='{{qishuisHidden}}'>
+    <picker bindchange="bindPickerQishuChange" value='{{index_qishu}}' range='{{qishu}}' range-key="{{'name'}}">
+      <button type="default">{{qishu[index_qishu].name}}</button>
+    </picker>
+
+  </view>
+  <view class="weui-btn-area" hidden='{{dongshuisHidden}}'>
+    <picker bindchange="bindPickerDongshuChange" value='{{index_dongshu}}' range='{{dongshu}}' range-key="{{'name'}}">
+      <button type="default">{{dongshu[index_dongshu].name}}</button>
+    </picker>
+
+  </view>
+  <view class="weui-btn-area" hidden='{{equipmentHidden}}'>
+    <picker bindchange="bindPickerEquipmentChange" value='{{index_equipment}}' range='{{equipment}}' range-key="{{'name'}}">
+      <button type="default">{{equipment[index_equipment].name}}</button>
+    </picker>
+
+  </view>
+ 
+  
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">开始时间</view>
+      <picker mode="date" value="{{startDate}}" start="{{startDate}}" bindchange="bindDateChange">
+        <view class="weui-cell__ft">当前选择: {{startDate}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+
+        <view class="weui-cell__hd">
+
+          <view class="weui-cell__bd">结束时间</view>
+
+        </view>
+
+        <view class="weui-cell__bd">
+
+          <input class="weui-cell__ft" placeholder="{{endDate}}"  disabled='true' />
+
+        </view>
+
+      </view>
+
+  </view>
+</view>
+
+<view class="gallery">
+
+  <view class="item" wx:for="{{images}}" wx:key="">
+
+    <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="{{item}}" bindtap="previewImage" mode="aspectFill" />
+
+    <!-- 删除按钮 -->
+
+    <view class="delete" bindtap="delete" data-index="{{index}}">
+      <image style="left: {{imageWidth / 2 - 10}}px;" src="../../utils/image/delete.png" />
+    </view>
+
+  </view>
+
+  <view class="item">
+
+    <image style="width: {{imageWidth}}px; height: {{imageWidth}}px" src="../../utils/image/add.png" class="button-upload" bindtap="chooseImage" />
+
+  </view>
+</view>
+<button type="primary" bindtap="submit">提交</button>

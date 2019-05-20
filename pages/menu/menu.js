@@ -10,6 +10,12 @@ Page({
     wx.setStorageSync('userName', userName);
     wx.setStorageSync('password', password)
   },
+  //跳转到图片上传页面
+  toImage:function(){
+    wx.navigateTo({
+      url: '/pages/uploadimage/uploadimage'
+    })
+  },
   //跳转到绑定页面
   bindequipment:function(){
     wx.navigateTo({

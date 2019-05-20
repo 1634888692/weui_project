@@ -19,6 +19,7 @@ Page({
       delta: 1,
     })
   },
+  
   /**
    * 搜索
    */
@@ -40,6 +41,8 @@ Page({
         
         success: function (res) {
          if(res.data.status="200"){
+
+           
            that.setData({
              datalist: res.data.obj,
            })
@@ -65,6 +68,12 @@ Page({
       method:"get",
       success:function(res){
         if(res.data.status=="200"){
+          wx.showToast({
+            title: '成功',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          })
           console.log("===========")
           that.data.datalist.splice(index, 1);
           that.setData({
@@ -75,8 +84,12 @@ console.log("===========")
       }
     })
   },
+  
   onLoad: function(options) {
-
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     //在缓存中取出用户名
     var userName = wx.getStorageSync('userName');
     var password = wx.getStorageSync("password");
@@ -90,11 +103,12 @@ console.log("===========")
       },
       method: "GET",
       success: function( res ) {
+       
         that.setData({
           datalist: res.data.obj,
         })
        
-        console.log(that.data.datalist)
+        wx.hideLoading()
       }
     });
    
