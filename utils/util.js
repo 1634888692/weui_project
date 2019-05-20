@@ -10,6 +10,7 @@ const formatTime = date => {
 }
 
 const formatNumber = n => {
+  //≤‚ ‘GIT
   n = n.toString()
   return n[1] ? n : '0' + n
 }
