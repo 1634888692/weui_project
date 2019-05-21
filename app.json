@@ -6,6 +6,7 @@
     "pages/visitoruploadimage/visitoruploadimage",
    "pages/bind/bind",
     "pages/logs/logs",
+    "pages/adverImageList/adverImageList",
     
     "pages/checkList/checkList"
   ],

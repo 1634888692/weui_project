@@ -8,4 +8,7 @@
 <view class="weui-btn-area">
 <button class="weui-btn" type="primary" bindtap='toImage'>上传图片</button> 
 </view>
+<view class="weui-btn-area">
+<button class="weui-btn" type="primary" bindtap='toAdverImage'>审核广告机图片</button> 
+</view>
 </view>

@@ -10,7 +10,7 @@ const formatTime = date => {
 }
 
 const formatNumber = n => {
-  //²âÊÔGIT
+  //Â²Ã¢ÃŠÃ”GIT
   n = n.toString()
   return n[1] ? n : '0' + n
 }

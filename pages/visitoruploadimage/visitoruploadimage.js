@@ -289,7 +289,7 @@ Page({
 
         //小程序自带的上传图片接口
         wx.uploadFile({
-          url: app.globalData.url + '/servlet/uploadFile',
+          url: app.globalData.uploadFileUrl,
           filePath: tempFilePaths,
           name: 'file',
 

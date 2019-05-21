@@ -10,6 +10,13 @@ Page({
     wx.setStorageSync('userName', userName);
     wx.setStorageSync('password', password)
   },
+  //跳转到广告图片页面
+  toAdverImage:function(){
+    
+    wx.navigateTo({
+      url: '/pages/adverImageList/adverImageList'
+    })
+  },
   //跳转到图片上传页面
   toImage:function(){
     wx.navigateTo({

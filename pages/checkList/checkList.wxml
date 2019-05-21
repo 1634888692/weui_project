@@ -13,16 +13,6 @@
          <text data-key='back'>返回</text>
      </view>
 </view>
-
-
-
-
-
-
-
-
-
-
   <view class="weui-panel weui-panel_access">
 
     <view class="weui-panel__hd">未审核数据</view>
