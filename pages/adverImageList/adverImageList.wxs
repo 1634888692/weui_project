@@ -1,0 +1,8 @@
+var sub = function (val) {
+  if (string.indexOf(".mp4?") >= 0) {
+
+    return true;
+
+  }
+}
+module.exports.sub = sub;

@@ -56,8 +56,29 @@
 
   </view>
 </view>
+<view class="weui-cells weui-cells_after-title">
 
-<view class="gallery">
+      <view class="weui-cell weui-cell_switch">
+
+        <view class="weui-cell__bd">是传图片</view>
+
+        <view class="weui-cell__ft">
+
+          <switch bindchange="switchChange" checked />
+
+        </view>
+
+      </view>
+
+    </view>
+<view  hidden='{{fileHidden}}'>
+<video src="{{src}}" hidden="{{!hiddenVideo}}" controls></video>
+ <video id='myVideo' hidden="{{hiddenVideo}}" show-center-play-btn="{{true}}" src='{{src}}' controls="true" >
+  </video>
+ <button class="start_btn"   bindtap="addVideoTap" >添加视频</button>
+</view>
+
+<view class="gallery" hidden='{{!fileHidden}}'>
 
   <view class="item" wx:for="{{images}}" wx:key="">
 

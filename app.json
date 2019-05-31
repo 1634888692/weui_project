@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/visitoruploadimage/visitoruploadimage",
+    
     "pages/uploadimage/uploadimage",
     "pages/menu/menu",
-    "pages/visitoruploadimage/visitoruploadimage",
+   
    "pages/bind/bind",
     "pages/logs/logs",
     "pages/adverImageList/adverImageList",

@@ -11,6 +11,16 @@ Page({
     openid:""
    
   },
+  //设置分享
+  onShareAppMessage: function () {
+
+    return {
+      title: '全民免费广告',
+      desc: '全民免费打广告',
+      path: '/pages/index/index' // 路径，传递参数到指定页面。
+    }
+
+  },
   onLoad: function() {
     // 查看是否授权
     wx.getSetting({

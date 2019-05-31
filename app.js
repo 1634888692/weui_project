@@ -36,7 +36,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    url: "https://service.xyd999.net",
+    url: "http://localhost:8080/xydServer",
     uploadFileUrl:"https://upload.xyd999.net"
   }
 })

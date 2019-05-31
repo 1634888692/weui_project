@@ -1,18 +1,20 @@
+<!-- 引入wxs脚本 -->
+<wxs src="adverImageList.wxs" module="tools" />
 <view class="page__bd">
-<view class="weui-search-bar">
-   <view class="weui-search-bar__form">
-    <view class="weui-search-bar__box">
-      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <input type="text" class="weui-search-bar__input" placeholder="请输入搜索内容" value="{{wxSearchData}}" bindinput="wxSearchInput" bindconfirm="wxSearchConfirm" />
-      <view class="weui-icon-clear" wx:if="{{wxSearchData.value.length > 0}}" bindtap="wxSearchClear">
-        <icon type="clear" size="14"></icon>
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="请输入搜索内容" value="{{wxSearchData}}" bindinput="wxSearchInput" bindconfirm="wxSearchConfirm" />
+        <view class="weui-icon-clear" wx:if="{{wxSearchData.value.length > 0}}" bindtap="wxSearchClear">
+          <icon type="clear" size="14"></icon>
+        </view>
       </view>
     </view>
-  </view>
     <view class="weui-search-bar__cancel-btn" bindtap="back">
-         <text data-key='back'>返回</text>
-     </view>
-</view>
+      <text data-key='back'>返回</text>
+    </view>
+  </view>
   <view class="weui-panel weui-panel_access">
 
     <view class="weui-panel__hd">未审核数据</view>
@@ -25,22 +27,26 @@
         <navigator url='' class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
 
-            
-            
+            <block wx:if="{{tools.sub(value.url)}}">
+              <video show-center-play-btn="{{true}}" src='{{value.url}}' controls="true" objectFit="cover"> </video>
+            </block>
+            <block wx:else>
+
 
               <image class="weui-media-box__thumb" src="{{value.url}}" />
-            
+
+            </block>
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">{{value.aid}}</view>
             <view class="weui-media-box__desc">{{value.locatin}} </view>
             <view class="weui-media-box__info">
 
-              
 
-                <button class="weui-btn" type="primary" id="{{value.id}}" catchtap='check' data-item="{{key}}">审核</button>
-            
-             
+
+              <button class="weui-btn" type="primary" id="{{value.id}}" catchtap='check' data-item="{{key}}">审核</button>
+
+
             </view>
           </view>
         </navigator>

@@ -2,6 +2,11 @@
 const app = getApp()
 Page({
   data: {
+    src:"",
+    hiddenVideo:true,
+    time:"",
+    fileHidden:true,
+    videoUrl:"",
     qishuisHidden: true,
     dongshuisHidden: true,
     equipmentHidden: true,
@@ -24,6 +29,75 @@ Page({
     imageWidth: 500 / 4 - 10,
     we: ""
   },
+  
+  
+
+  //点击上传视频按钮
+  addVideoTap: function () {
+    var that = this;
+    //选择上传视频
+    wx.chooseVideo({
+      sourceType: ['camera'], //视频选择的来源
+      //sizeType: ['compressed'],
+      compressed: false,//是否压缩上传视频
+      camera: 'back', //默认拉起的是前置或者后置摄像头
+      success: function (res) {
+       
+        //上传成功，设置选定视频的临时文件路径
+        that.setData({
+          src: res.tempFilePath,
+          time:res.duration,
+          hiddenVideo:false
+          
+        });
+        //在上传到服务器前显示加载中
+        wx.showLoading({
+          title: '加载中...',
+          icon: 'loading',
+        });
+        //上传视频
+        wx.uploadFile({
+          url: app.globalData.url + "/servlet/uploadFile", //开发者服务器的 url
+          filePath: res.tempFilePath, // 要上传文件资源的路径 String类型！！！
+          name: 'file', // 文件对应的 key ,(后台接口规定的关于图片的请求参数)
+          header: {
+            'content-type': 'multipart/form-data'
+          }, // 设置请求的 header
+          formData: {
+
+          }, // HTTP 请求中其他额外的参数
+          success: function (res) {
+            that.setData({
+              fileId: that.data.fileId.concat(JSON.parse(res.data).obj)
+
+            })
+            //上传成功后隐藏加载框
+            wx.hideLoading();
+           
+          },
+          fail: function (res) {
+            console.log("图片上传失败" + res);
+            wx.hideLoading();
+          }
+        })
+      }
+    })
+  },
+
+/**
+ * 开关
+ */
+  switchChange:function(e){
+
+    this.setData({
+      fileHidden: e.detail.value,
+      //清楚fileId
+      fileId1:""
+    })
+    console.log('switch1 发生 change 事件，携带值为', e.detail.value)
+  },
+
+
   //选中设备激发
   bindPickerEquipmentChange: function(e) {
     this.setData({
@@ -289,7 +363,7 @@ Page({
 
         //小程序自带的上传图片接口
         wx.uploadFile({
-          url: app.globalData.uploadFileUrl,
+          url: app.globalData.url+"/servlet/uploadFile",
           filePath: tempFilePaths,
           name: 'file',
 

@@ -13,6 +13,21 @@
   position: relative;
   margin: 5px;
 }
+.prew_video{
+    display: flex;
+    align-items: center; /*垂直居中*/
+    justify-content: center; /*居中对齐*/
+    position: relative;
+    background-color: #fff;
+}
+.prew_video[hidden]{
+    display: none;
+}
+.prew_video .play{
+    width: 48rpx;
+    height: 48rpx;
+}
+
 
 /*删除按钮*/
 

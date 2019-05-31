@@ -188,7 +188,8 @@ Page({
   //选中类型触发
   bindPickerChangeType: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    if (e.detail.value == 0) {
+    console.log('picker发送选择改变，携带值为', this.data.type[e.detail.value].name)
+    if (this.data.type[e.detail.value].name!="设备") {
       this.setData({
         index_type: e.detail.value,
         typeId: this.data.type[e.detail.value].id,
@@ -202,17 +203,15 @@ Page({
       })
     }
 
-    // this.setData({
-    //   index_type: e.detail.value,
-    //   typeId: this.data.type[e.detail.value].id,
-    //   isHidden: false
-    // })
+    
     var that = this;
     //向后台请求小区名称数据
 
     wx.request({
-      url: app.globalData.url + '/servlet/xiaoqu',
-      data: {},
+      url: app.globalData.url + '/servlet/getWexiaoqu',
+      data: {
+        userName: wx.getStorageSync('userName'),
+        password: wx.getStorageSync("password")},
       method: "GET",
       success: function(res) {
         that.setData({
@@ -222,40 +221,7 @@ Page({
       }
 
     })
-    // //通过类型的id,请求后台查询类型数据
-    // wx.request({
-    //   url: app.globalData.url + '/servlet/getData',
-    //   data: {
-    //     type: that.data.type[e.detail.value].id,
-    //     userName: wx.getStorageSync('userName'),
-    //     password: wx.getStorageSync("password")
-    //   },
-    //   method: "get",
-    //   success: function(res) {
-    //     if (that.data.type[e.detail.value].id == 0) {
-    //       that.setData({
-    //         bindName: "全部",
-    //         isHidden: true
-    //       })
-    //     } else if (that.data.type[e.detail.value].id == 1) {
-    //       that.setData({
-    //         bindName: "设备"
-    //       })
-    //     } else {
-    //       that.setData({
-    //         bindName: "城市"
-    //       })
-    //     }
-    //     that.setData({
-    //       isHidden: false
-    //     })
-    //     that.setData({
-    //       eqName: that.data.eqName.concat(res.data.obj),
-    //       eqId: res.data.obj!=null?res.data.obj[0].id:""
-    //     });
-    //     console.log("=========")
-    //   }
-    // })
+   
   },
   chooseImage: function() { // 选择图片
     var that = this;
@@ -275,7 +241,7 @@ Page({
 
         //小程序自带的上传图片接口
         wx.uploadFile({
-          url: app.globalData.uploadFileUrl,
+          url: app.globalData.url+"/servlet/uploadFile",
           filePath: tempFilePaths,
           name: 'file',
 
